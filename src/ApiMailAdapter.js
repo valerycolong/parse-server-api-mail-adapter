@@ -24,7 +24,7 @@ class ApiMailAdapter extends MailAdapter {
     }
 
     // Ensure email templates are set if this is not for external mail adapter.
-    if (!external && !templates || Object.keys(templates).length === 0) {
+    if (!external && (!templates || Object.keys(templates).length === 0)) {
       throw Errors.Error.templatesInvalid;
     }
 
