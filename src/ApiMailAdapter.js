@@ -16,7 +16,7 @@ class ApiMailAdapter extends MailAdapter {
   constructor(options) {
 
     // Get parameters
-    const { external = false, sender, templates = {}, apiCallback } = options || {};
+    const { external = false, sender, verificationEmail = true, passwordResetEmail = true, templates = {}, apiCallback } = options || {};
 
     // Ensure required parameters are set
     if (!sender) {
@@ -47,6 +47,8 @@ class ApiMailAdapter extends MailAdapter {
     // Set properties
     this.external = external;
     this.sender = sender;
+    this.verificationEmail = verificationEmail;
+    this.passwordResetEmail = passwordResetEmail;
     this.templates = templates;
     this.apiCallback = apiCallback;
   }
@@ -60,6 +62,11 @@ class ApiMailAdapter extends MailAdapter {
    * @returns {Promise<Any>} The mail provider API response.
    */
   sendPasswordResetEmail({ link, appName, user }) {
+    if (!this.passwordResetEmail) {
+      console.warn('Sending password reset email is disabled.');
+      return;
+    }
+
     return this._sendMail({
       templateName: 'passwordResetEmail',
       link,
@@ -77,6 +84,10 @@ class ApiMailAdapter extends MailAdapter {
    * @returns {Promise<Any>} The mail provider API response.
    */
   sendVerificationEmail({ link, appName, user }) {
+    if (!this.verificationEmail) {
+      console.warn('Sending verification email is disabled.');
+      return;
+    }
     return this._sendMail({
       templateName: 'verificationEmail',
       link,

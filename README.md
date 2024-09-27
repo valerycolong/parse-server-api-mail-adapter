@@ -83,6 +83,10 @@ const server = new ParseServer({
         options: {
             // Set to true if templates are to be processed by a thirdparty api like sendgrid. (Defaults to false).
             external: true,
+            // Set whether or not verification email should be sent - defaults to true.
+            verificationEmail: true,
+            // Set whether or not password reset email should be sent - defaults to true.
+            passwordResetEmail: true,
             // The email address from which emails are sent (Required).
             sender: 'sender@example.com',
             // The email templates - (Optional).

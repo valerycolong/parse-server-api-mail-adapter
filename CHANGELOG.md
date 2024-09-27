@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [4.1.0] - 2024-09-27
+ 
+Adds ability to disable sending default parse server verification email and password reset email.
+Parse forces you to either disable auto login on signup with email verification or auto login on signup without email verification.
+For some special cases, we may want to send those emails ourselves or allow users to sign up and use other means to verify them other than sending the default verification email. This change allows you to do just that.
+
+### Added
+
+- Ability to switch of sending verification and password reset emails.
+
  
 ## [4.0.1] - 2024-09-18
  
