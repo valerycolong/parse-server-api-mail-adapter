@@ -15,6 +15,10 @@ For some special cases, we may want to send those emails ourselves or allow user
 
 - Ability to switch of sending verification and password reset emails.
 
+### Changed
+
+- Removed codecov report upload.
+
  
 ## [4.0.1] - 2024-09-18
  

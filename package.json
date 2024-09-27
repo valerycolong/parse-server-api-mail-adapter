@@ -46,12 +46,12 @@
     "eslint": "7.32.0",
     "eslint-plugin-flowtype": "5.9.0",
     "form-data": "4.0.0",
-    "jasmine": "3.9.0",
-    "madge": "5.0.1",
-    "mailgun.js": "3.5.9",
-    "nyc": "15.1.0",
-    "semantic-release": "21.0.2",
-    "typescript": "5.2.2"
+    "jasmine": "5.3.0",
+    "madge": "8.0.0",
+    "mailgun.js": "10.2.3",
+    "nyc": "17.1.0",
+    "semantic-release": "24.1.1",
+    "typescript": "5.6.2"
   },
   "engines": {
     "node": "18 || 20 || 22"
@@ -64,7 +64,7 @@
     "madge": "madge ./src $npm_config_arg",
     "madge:circular": "npm run madge --arg=--circular",
     "test": "nyc --reporter=lcov jasmine",
-    "posttest": "nyc report --reporter=json && codecov -f coverage/*.json",
+    "posttest": "nyc report --reporter=json",
     "prepare": "npm run build && npm test",
     "demo": "node ./demo"
   },
